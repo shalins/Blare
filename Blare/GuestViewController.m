@@ -30,7 +30,44 @@
 
 @implementation GuestViewController
     
+- (void)viewDidLoad
+{
+    //        NSString *imageBG = @"MainMenuBG.png";
+    //        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MainMenuBG.png"]]];
+    //        CGRect screenRect = [[UIScreen mainScreen] bounds];
+    //        if (screenRect.size.height == 568.0f)
+    //        imageBG = [imageBG stringByReplacingOccurrencesOfString:@".png" withString:@"-568h.png"];
+    //
+    //
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
+    
+    
+    //Set navBar image programatically    (NavBar.png replace with the image)
+    //    UIImage *navBarImage = [UIImage imageNamed:@"NavBarBG.png"];
+    //    [[UINavigationBar appearance]setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+    //
+    [super viewDidLoad];
+    //[self initializeMusicPlayer];
+    
+    // [self addMusicPlayerObserver];
+    
+    [super viewDidLoad];
+    
+    //load the find hosts ciew
+    self.session = [[TDSession alloc] initWithPeerDisplayName:[[UIDevice currentDevice] name]];
+
+    [self presentViewController:[self.session browserViewControllerForSeriviceType:@"dance-party"] animated:YES completion:nil];
+    
+    self.session.delegate = self;
+    
+
+}
+
+
+
+
+
 
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -74,42 +111,6 @@
     
 #pragma mark - View lifecycle
     
-- (void)viewDidLoad
-    {
-        //        NSString *imageBG = @"MainMenuBG.png";
-        //        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MainMenuBG.png"]]];
-        //        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        //        if (screenRect.size.height == 568.0f)
-        //        imageBG = [imageBG stringByReplacingOccurrencesOfString:@".png" withString:@"-568h.png"];
-        //
-        //
-        
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
-        
-        
-        //Set navBar image programatically    (NavBar.png replace with the image)
-        //    UIImage *navBarImage = [UIImage imageNamed:@"NavBarBG.png"];
-        //    [[UINavigationBar appearance]setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-        //
-        [super viewDidLoad];
-        //[self initializeMusicPlayer];
-        
-       // [self addMusicPlayerObserver];
-        
-        [super viewDidLoad];
-        
-        self.session = [[TDSession alloc] initWithPeerDisplayName:[[UIDevice currentDevice] name]];
-        //[self.session startAdvertisingForServiceType:@"dance-party" discoveryInfo:nil];
-        [self presentViewController:[self.session browserViewControllerForSeriviceType:@"dance-party"] animated:YES completion:nil];
-        
-        self.session.delegate = self;
-        
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-
-
-
 
 #pragma mark - TDSessionDelegate
 

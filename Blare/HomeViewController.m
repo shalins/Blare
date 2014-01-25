@@ -38,7 +38,6 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     if (screenRect.size.height == 568.0f) {
         imageBG = [imageBG stringByReplacingOccurrencesOfString:@".png" withString:@"-568h.png"];
-        NSLog(@"This Works, Shalin");
     }
 
     
