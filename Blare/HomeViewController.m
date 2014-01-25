@@ -26,6 +26,9 @@
     
     [self performSegueWithIdentifier:@"pushHost" sender:self];
 }
+- (IBAction)oushL:(id)sender {
+     [self performSegueWithIdentifier:@"pushListen" sender:self];
+}
 
 
 - (void)viewDidLoad

@@ -10,7 +10,7 @@
 
 
 
-@implementation HostViewController
+@implementation GuestViewController
     
     
     
