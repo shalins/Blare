@@ -24,6 +24,8 @@
     
     
 @interface GuestViewController : UIViewController <MPMediaPickerControllerDelegate,PlayListViewDelegate>{
+    
+    
         
         IBOutlet  UIButton *_playPauseButton;
         
