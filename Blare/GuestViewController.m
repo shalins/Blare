@@ -32,6 +32,7 @@
         //
         //
         
+        
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
         
         
