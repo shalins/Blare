@@ -76,7 +76,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXG-4I-DXd">
-                                <rect key="frame" x="47" y="125" width="226" height="222"/>
+                                <rect key="frame" x="47" y="178" width="226" height="222"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play/Pause">
                                     <color key="titleColor" red="0.071874491779999994" green="0.79438133560000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,7 +87,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="txi-Fe-jh3">
-                                <rect key="frame" x="18" y="378" width="284" height="34"/>
+                                <rect key="frame" x="18" y="491" width="284" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.071874491779999994" green="0.79438133560000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
