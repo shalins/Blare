@@ -9,28 +9,8 @@
 #import "GuestViewController.h"
 
 
-@import MediaPlayer;
-
-#import "TDMultipeerGuestViewController.h"
-#import "TDSession.h"
-#import "TDAudioStreamer.h"
-
-@interface GuestViewController () <TDSessionDelegate>
-    
-    @property (weak, nonatomic) IBOutlet UIImageView *albumImage;
-    @property (weak, nonatomic) IBOutlet UILabel *songTitle;
-    @property (weak, nonatomic) IBOutlet UILabel *songArtist;
-    
-    
-    //@property (strong, nonatomic) TDSession *session;
-    @property (strong, nonatomic) TDAudioInputStreamer *inputStream;
-    
-    @end
-
 
 @implementation GuestViewController
-    
-    
     
     
     
@@ -40,69 +20,6 @@
         // Release any cached data, images, etc that aren't in use.
     }
     
-#pragma mark - View lifecycle
-    
-//- (void)viewDidLoad
-//    {
-//        //        NSString *imageBG = @"MainMenuBG.png";
-//        //        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MainMenuBG.png"]]];
-//        //        CGRect screenRect = [[UIScreen mainScreen] bounds];
-//        //        if (screenRect.size.height == 568.0f)
-//        //        imageBG = [imageBG stringByReplacingOccurrencesOfString:@".png" withString:@"-568h.png"];
-//        //
-//        //
-//        
-//        
-//        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
-//        
-//        
-//        //Set navBar image programatically    (NavBar.png replace with the image)
-//        //    UIImage *navBarImage = [UIImage imageNamed:@"NavBarBG.png"];
-//        //    [[UINavigationBar appearance]setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-//        //
-//        [super viewDidLoad];
-//        [self initializeMusicPlayer];
-//        
-//        [self addMusicPlayerObserver];
-//        
-//        // Do any additional setup after loading the view, typically from a nib.
-//    }
-//    
-//- (void)viewDidUnload
-//    {
-//        [super viewDidUnload];
-//        // Release any retained subviews of the main view.
-//        // e.g. self.myOutlet = nil;
-//        
-//        [self removeMusicPlayerObserver];
-//        
-//    }
-//    
-//- (void)viewWillAppear:(BOOL)animated
-//    {
-//        [super viewWillAppear:animated];
-//    }
-//    
-//- (void)viewDidAppear:(BOOL)animated
-//    {
-//        [super viewDidAppear:animated];
-//    }
-//    
-//- (void)viewWillDisappear:(BOOL)animated
-//    {
-//        [super viewWillDisappear:animated];
-//    }
-//    
-//- (void)viewDidDisappear:(BOOL)animated
-//    {
-//        [super viewDidDisappear:animated];
-//        
-//        
-//        [super viewDidDisappear:animated];
-//        [self.session stopAdvertising];
-//
-//    }
-//    
 #pragma mark - View lifecycle
     
 - (void)viewDidLoad
@@ -159,13 +76,7 @@
 - (void)viewDidDisappear:(BOOL)animated
     {
         [super viewDidDisappear:animated];
-        
-        
-        [super viewDidDisappear:animated];
-        [self.session stopAdvertising];
-        
     }
-    
     
     
     
@@ -553,38 +464,5 @@
     }
     
     
-    
-    
-
-
-
-
-    
-- (void)changeSongInfo:(NSDictionary *)info
-    {
-        if (info[@"artwork"])
-        self.albumImage.image = info[@"artwork"];
-        else
-        self.albumImage.image = nil;
-        
-        self.songTitle.text = info[@"title"];
-        self.songArtist.text = info[@"artist"];
-    }
-    
-#pragma mark - TDSessionDelegate
-    
-- (void)session:(TDSession *)session didReceiveData:(NSData *)data
-    {
-        NSDictionary *info = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        [self performSelectorOnMainThread:@selector(changeSongInfo:) withObject:info waitUntilDone:NO];
-    }
-    
-- (void)session:(TDSession *)session didReceiveAudioStream:(NSInputStream *)stream
-    {
-        if (!self.inputStream) {
-            self.inputStream = [[TDAudioInputStreamer alloc] initWithInputStream:stream];
-            [self.inputStream start];
-        }
-    }
     
     @end
