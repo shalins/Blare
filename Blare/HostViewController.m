@@ -6,10 +6,16 @@
 //  Copyright (c) 2014 Spencer Yen. All rights reserved.
 //
 
+@import MediaPlayer;
+@import MultipeerConnectivity;
+@import AVFoundation;
+
 #import "HostViewController.h"
+#import "TDMultipeerHostViewController.h"
+#import "TDAudioStreamer.h"
+#import "TDSession.h"
 
-
-@interface HostViewController () {
+@interface HostViewController () <MPMediaPickerControllerDelegate> {
     
     @private
     

@@ -40,6 +40,8 @@
 		6C3F648A1893AD91000332B5 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3F64891893AD91000332B5 /* MultipeerConnectivity.framework */; };
 		6C3F648C1893ADD3000332B5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3F648B1893ADD3000332B5 /* AudioToolbox.framework */; };
 		6C3F648E1893ADDF000332B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3F648D1893ADDF000332B5 /* AVFoundation.framework */; };
+		6CD66EA71893FB56001932E2 /* TDMultipeerGuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD66EA41893FB56001932E2 /* TDMultipeerGuestViewController.m */; };
+		6CD66EA81893FB56001932E2 /* TDMultipeerHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD66EA61893FB56001932E2 /* TDMultipeerHostViewController.m */; };
 		708422531893DDD100E48427 /* host.png in Resources */ = {isa = PBXBuildFile; fileRef = 708422471893DDD100E48427 /* host.png */; };
 		708422541893DDD100E48427 /* host@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708422481893DDD100E48427 /* host@2x.png */; };
 		708422551893DDD100E48427 /* listen.png in Resources */ = {isa = PBXBuildFile; fileRef = 708422491893DDD100E48427 /* listen.png */; };
@@ -121,6 +123,10 @@
 		6C3F64891893AD91000332B5 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		6C3F648B1893ADD3000332B5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6C3F648D1893ADDF000332B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6CD66EA31893FB56001932E2 /* TDMultipeerGuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMultipeerGuestViewController.h; sourceTree = "<group>"; };
+		6CD66EA41893FB56001932E2 /* TDMultipeerGuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDMultipeerGuestViewController.m; sourceTree = "<group>"; };
+		6CD66EA51893FB56001932E2 /* TDMultipeerHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMultipeerHostViewController.h; sourceTree = "<group>"; };
+		6CD66EA61893FB56001932E2 /* TDMultipeerHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDMultipeerHostViewController.m; sourceTree = "<group>"; };
 		708422471893DDD100E48427 /* host.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = host.png; sourceTree = "<group>"; };
 		708422481893DDD100E48427 /* host@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "host@2x.png"; sourceTree = "<group>"; };
 		708422491893DDD100E48427 /* listen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listen.png; sourceTree = "<group>"; };
@@ -204,6 +210,7 @@
 		6C3F642718939DA6000332B5 /* Blare */ = {
 			isa = PBXGroup;
 			children = (
+				6CD66EA21893FB56001932E2 /* Views */,
 				6C3F64881893AD4F000332B5 /* Audio Session Classes */,
 				6C3F645E1893AB4C000332B5 /* AudioStreamer */,
 				6C3F643018939DA6000332B5 /* AppDelegate.h */,
@@ -304,6 +311,17 @@
 				6C3F64861893AC95000332B5 /* TDSession.m */,
 			);
 			name = "Audio Session Classes";
+			sourceTree = "<group>";
+		};
+		6CD66EA21893FB56001932E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6CD66EA31893FB56001932E2 /* TDMultipeerGuestViewController.h */,
+				6CD66EA41893FB56001932E2 /* TDMultipeerGuestViewController.m */,
+				6CD66EA51893FB56001932E2 /* TDMultipeerHostViewController.h */,
+				6CD66EA61893FB56001932E2 /* TDMultipeerHostViewController.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7084221E1893C95400E48427 /* Graphics */ = {
@@ -453,10 +471,12 @@
 				07D433CB1893A7DA002966BD /* PlayListViewViewController.m in Sources */,
 				6C3F645818939F58000332B5 /* HomeViewController.m in Sources */,
 				6C3F64841893AB4C000332B5 /* TDAudioStreamerConstants.m in Sources */,
+				6CD66EA71893FB56001932E2 /* TDMultipeerGuestViewController.m in Sources */,
 				6C3F64831893AB4C000332B5 /* TDAudioStreamer.m in Sources */,
 				6C3F647E1893AB4C000332B5 /* TDAudioQueueController.m in Sources */,
 				6C3F647F1893AB4C000332B5 /* TDAudioQueueFiller.m in Sources */,
 				6C3F64871893AC95000332B5 /* TDSession.m in Sources */,
+				6CD66EA81893FB56001932E2 /* TDMultipeerHostViewController.m in Sources */,
 				6C3F64791893AB4C000332B5 /* NSMutableArray+QueueMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
