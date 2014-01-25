@@ -6,60 +6,15 @@
 //  Copyright (c) 2014 Spencer Yen. All rights reserved.
 //
 
-@import MediaPlayer;
-@import MultipeerConnectivity;
-@import AVFoundation;
 
 #import "HostViewController.h"
-#import "TDMultipeerHostViewController.h"
-#import "TDAudioStreamer.h"
-#import "TDSession.h"
 
-@interface HostViewController () <MPMediaPickerControllerDelegate> {
-    
-    @private
-    
-    IBOutlet  UIButton *_playPauseButton;
-    
-    IBOutlet  UILabel *_currentlyPlayingSong;
-    
-    IBOutlet  UITableView *_songTableView;
-    
-    IBOutlet  UISlider *_volumeSlider;
-    
-	MPMediaItemCollection	*_userMediaItemCollection;
-    
-    PlayListView *_playListView;
-}
-    
-    @property (nonatomic,strong) MPMusicPlayerController *musicPlayer;
-    
-    
-    
-- (IBAction)playPauseMusic:(id)sender;
-- (IBAction)playNextSongInList:(id)sender;
-- (IBAction)playPreviousSongInList:(id)sender;
-- (IBAction)repeatSongList:(id)sender;
-- (IBAction)shuffleSongList:(id)sender;
-- (IBAction)changeVolume:(id)sender;
-- (IBAction)selectSongs:(id)sender;
-- (IBAction)selectPlayList:(id)sender;
-    
-- (void)removeMusicPlayerObserver;
-- (void)addMusicPlayerObserver;
-- (void)initializeMusicPlayer;
-- (void)clearMusicList;
-    
-- (void)updateTheMediaColledtionsItems:(MPMediaItemCollection *)mediaItemCollection;
-    
-    @end
+
 
 @implementation HostViewController
     
-    @synthesize musicPlayer = _musicPlayer;
-    
-    
-    
+
+
 - (void)didReceiveMemoryWarning
     {
         [super didReceiveMemoryWarning];
