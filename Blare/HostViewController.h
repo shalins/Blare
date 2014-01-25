@@ -41,6 +41,15 @@
 @property (nonatomic,strong) MPMusicPlayerController *musicPlayer;
 @property (strong, nonatomic) MPMediaItem *song;
 @property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer;
+@property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer2;
+@property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer3;
+@property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer4;
+@property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer5;
+@property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer6;
+@property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer7;
+@property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer8;
+
+
 @property (strong, nonatomic) TDSession *session;
 @property (strong, nonatomic) AVPlayer *player;
 

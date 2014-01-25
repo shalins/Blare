@@ -35,6 +35,18 @@
     return self;
 }
 
+- (instancetype) initWithOutputStreams:(NSMutableArray *)streamsArray
+{
+    self = [super init];
+    if (!self) return nil;
+    
+    self.audioStream = [[TDAudioStream alloc] initWithOutputStream:streamsArray[0]];
+    self.audioStream.delegate = self;
+    NSLog(@"Init");
+    
+    return self;
+}
+
 - (void)start
 {
     if (![[NSThread currentThread] isEqual:[NSThread mainThread]]) {
