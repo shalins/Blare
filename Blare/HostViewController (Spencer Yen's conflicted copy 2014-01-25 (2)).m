@@ -65,18 +65,18 @@
     
     //how to fix for more than one peer
     NSLog(@"peers: %@", peers);
+     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]error: NULL];
+     [self.player play];
     if (peers.count == 1) {
             self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
         
             [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+        NSLog(@"URL of audio: %@", [self.song valueForProperty:MPMediaItemPropertyAssetURL]);
         
-//        
-//        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]error: NULL];
-//        //[self.player play];
-               [self.outputStreamer start];
-        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
         
-
+ 
+        [self.outputStreamer start];
+     
     }
     if (peers.count == 2) {
         self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
@@ -87,8 +87,6 @@
         [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
         [self.outputStreamer start];
         [self.outputStreamer2 start];
-        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-
     }
     if (peers.count == 3) {
         self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
@@ -106,170 +104,158 @@
         [self.outputStreamer start];
         [self.outputStreamer2 start];
         [self.outputStreamer3 start];
-        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-
     }
-    if (peers.count == 4) {
-        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
-        
-        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
-        
-        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
-        
-        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
-        
-        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        [self.outputStreamer start];
-        [self.outputStreamer2 start];
-        [self.outputStreamer3 start];
-        [self.outputStreamer4 start];
-        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-
-    }
-    if (peers.count == 5) {
-        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
-        
-        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
-        
-        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
-        
-        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
-        
-        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer5 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[4]]];
-        
-        [self.outputStreamer5 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        [self.outputStreamer start];
-        [self.outputStreamer2 start];
-        [self.outputStreamer3 start];
-        [self.outputStreamer4 start];
-        [self.outputStreamer5 start];
-        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-
-    }
-    if (peers.count == 6) {
-        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
-        
-        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
-        
-        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
-        
-        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
-        
-        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer5 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[4]]];
-        
-        [self.outputStreamer5 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer6 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[5]]];
-        
-        [self.outputStreamer6 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        [self.outputStreamer start];
-        [self.outputStreamer2 start];
-        [self.outputStreamer3 start];
-        [self.outputStreamer4 start];
-        [self.outputStreamer5 start];
-        [self.outputStreamer6 start];
-        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-
-    }
-    if (peers.count == 7) {
-        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
-        
-        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
-        
-        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
-        
-        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
-        
-        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer5 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[4]]];
-        
-        [self.outputStreamer5 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer6 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[5]]];
-        
-        [self.outputStreamer6 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer7 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[6]]];
-        
-        [self.outputStreamer7 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-
-        
-        [self.outputStreamer start];
-        [self.outputStreamer2 start];
-        [self.outputStreamer3 start];
-        [self.outputStreamer4 start];
-        [self.outputStreamer5 start];
-        [self.outputStreamer6 start];
-        [self.outputStreamer7 start];
-        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-
-    }
-    if (peers.count == 8) {
-        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
-        
-        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
-        
-        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
-        
-        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
-        
-        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer5 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[4]]];
-        
-        [self.outputStreamer5 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer6 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[5]]];
-        
-        [self.outputStreamer6 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer7 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[6]]];
-        
-        [self.outputStreamer7 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        self.outputStreamer8 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[7]]];
-        
-        [self.outputStreamer8 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        
-        [self.outputStreamer start];
-        [self.outputStreamer2 start];
-        [self.outputStreamer3 start];
-        [self.outputStreamer4 start];
-        [self.outputStreamer5 start];
-        [self.outputStreamer6 start];
-        [self.outputStreamer7 start];
-        [self.outputStreamer8 start];
-        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-
-    }
+//    if (peers.count == 4) {
+//        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
+//        
+//        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
+//        
+//        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
+//        
+//        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
+//        
+//        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        [self.outputStreamer start];
+//        [self.outputStreamer2 start];
+//        [self.outputStreamer3 start];
+//        [self.outputStreamer4 start];
+//    }
+//    if (peers.count == 5) {
+//        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
+//        
+//        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
+//        
+//        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
+//        
+//        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
+//        
+//        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer5 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[4]]];
+//        
+//        [self.outputStreamer5 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        [self.outputStreamer start];
+//        [self.outputStreamer2 start];
+//        [self.outputStreamer3 start];
+//        [self.outputStreamer4 start];
+//        [self.outputStreamer5 start];
+//    }
+//    if (peers.count == 6) {
+//        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
+//        
+//        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
+//        
+//        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
+//        
+//        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
+//        
+//        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer5 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[4]]];
+//        
+//        [self.outputStreamer5 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer6 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[5]]];
+//        
+//        [self.outputStreamer6 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        [self.outputStreamer start];
+//        [self.outputStreamer2 start];
+//        [self.outputStreamer3 start];
+//        [self.outputStreamer4 start];
+//        [self.outputStreamer5 start];
+//        [self.outputStreamer6 start];
+//    }
+//    if (peers.count == 7) {
+//        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
+//        
+//        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
+//        
+//        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
+//        
+//        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
+//        
+//        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer5 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[4]]];
+//        
+//        [self.outputStreamer5 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer6 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[5]]];
+//        
+//        [self.outputStreamer6 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer7 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[6]]];
+//        
+//        [self.outputStreamer7 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//
+//        
+//        [self.outputStreamer start];
+//        [self.outputStreamer2 start];
+//        [self.outputStreamer3 start];
+//        [self.outputStreamer4 start];
+//        [self.outputStreamer5 start];
+//        [self.outputStreamer6 start];
+//        [self.outputStreamer7 start];
+//    }
+//    if (peers.count == 8) {
+//        self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
+//        
+//        [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
+//        
+//        [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer3 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[2]]];
+//        
+//        [self.outputStreamer3 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        self.outputStreamer4 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[3]]];
+//        
+//        [self.outputStreamer4 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer5 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[4]]];
+//        
+//        [self.outputStreamer5 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer6 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[5]]];
+//        
+//        [self.outputStreamer6 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer7 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[6]]];
+//        
+//        [self.outputStreamer7 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        self.outputStreamer8 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[7]]];
+//        
+//        [self.outputStreamer8 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+//        
+//        [self.outputStreamer start];
+//        [self.outputStreamer2 start];
+//        [self.outputStreamer3 start];
+//        [self.outputStreamer4 start];
+//        [self.outputStreamer5 start];
+//        [self.outputStreamer6 start];
+//        [self.outputStreamer7 start];
+//        [self.outputStreamer8 start];
+//    }
 }
 
 - (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker
@@ -286,11 +272,7 @@
 
 
 
--(void)streamMusicLocal:(NSURL *)musicURL{
-    
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:musicURL error: NULL];
-    [self.player play];
-}
+
 
 
 
@@ -316,12 +298,6 @@
     
 - (void)viewDidLoad
     {
-        //[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-
-        // Set this in every view controller so that the back button displays back instead of the root view controller name
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-
-        
 //        NSString *imageBG = @"MainMenuBG.png";
 //        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MainMenuBG.png"]]];
 //        CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -353,7 +329,7 @@
         [super viewDidUnload];
         // Release any retained subviews of the main view.
         // e.g. self.myOutlet = nil;
-        
+        self.player = nil;
         [self removeMusicPlayerObserver];
         
     }

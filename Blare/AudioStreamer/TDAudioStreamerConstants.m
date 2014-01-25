@@ -21,5 +21,5 @@ NSString *const TDAudioStreamDidStartPlayingNotification = @"TDAudioStreamDidSta
 
 UInt32 const kTDAudioStreamReadMaxLength = 512;
 UInt32 const kTDAudioQueueBufferSize = 2048;
-UInt32 const kTDAudioQueueBufferCount = 16;
+UInt32 const kTDAudioQueueBufferCount = 3;
 UInt32 const kTDAudioQueueStartMinimumBuffers = 8;

@@ -50,8 +50,9 @@
 @property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer8;
 
 
+@property (nonatomic, strong) AVAudioPlayer* player;
+
 @property (strong, nonatomic) TDSession *session;
-@property (strong, nonatomic) AVPlayer *player;
 
 
 - (IBAction)playPauseMusic:(id)sender;
