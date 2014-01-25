@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pp-dH-arX">
-                                <rect key="frame" x="68" y="156" width="184" height="169"/>
+                                <rect key="frame" x="68" y="340" width="184" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play/Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,26 +86,22 @@
                                     <action selector="changeVolume:" destination="mUb-Ir-2qx" eventType="valueChanged" id="TYQ-3p-587"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDj-rP-ETO">
-                                <rect key="frame" x="54" y="81" width="59" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15y-zQ-P1x">
+                                <rect key="frame" x="100" y="92" width="200" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Previous">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playPreviousSongInList:" destination="mUb-Ir-2qx" eventType="touchUpInside" id="DkZ-RK-ZKM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rY8-64-Qp9">
-                                <rect key="frame" x="187" y="81" width="32" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0F-EU-VlG">
+                                <rect key="frame" x="59" y="129" width="145" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playNextSongInList:" destination="mUb-Ir-2qx" eventType="touchUpInside" id="oy4-hY-pCz"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mca-QU-3Yo">
+                                <rect key="frame" x="29" y="158" width="240" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -113,6 +109,9 @@
                     <connections>
                         <outlet property="_playPauseButton" destination="4pp-dH-arX" id="5Ym-3S-Unq"/>
                         <outlet property="_volumeSlider" destination="0tw-gy-KLg" id="j0P-Y5-zaT"/>
+                        <outlet property="albumImage" destination="Mca-QU-3Yo" id="Yu4-K0-VYf"/>
+                        <outlet property="songArtist" destination="c0F-EU-VlG" id="XAi-J6-RUD"/>
+                        <outlet property="songTitle" destination="15y-zQ-P1x" id="pKK-Ds-IVy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUO-Uc-hWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -136,7 +135,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXG-4I-DXd">
-                                <rect key="frame" x="47" y="125" width="226" height="222"/>
+                                <rect key="frame" x="47" y="337" width="226" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play/Pause">
                                     <color key="titleColor" red="0.071874491779999994" green="0.79438133560000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,28 +153,22 @@
                                     <action selector="changeVolume:" destination="ZIT-rA-hFW" eventType="valueChanged" id="Trd-S0-7Jk"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMZ-BI-sby">
-                                <rect key="frame" x="230" y="140" width="32" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi hi hi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvA-26-hoF">
+                                <rect key="frame" x="129" y="94" width="138" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.071874491779999994" green="0.79438133560000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playNextSongInList:" destination="ZIT-rA-hFW" eventType="touchUpInside" id="mg5-Fu-PZB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l15-AI-W6O">
-                                <rect key="frame" x="32" y="140" width="59" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi hi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wt-Ir-OLW">
+                                <rect key="frame" x="129" y="138" width="32" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Previous">
-                                    <color key="titleColor" red="0.071874491777111693" green="0.79438133558084845" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playPreviousSongInList:" destination="ZIT-rA-hFW" eventType="touchUpInside" id="ON7-l0-8Fz"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-rS-PjI">
+                                <rect key="frame" x="47" y="201" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -183,6 +176,9 @@
                     <connections>
                         <outlet property="_playPauseButton" destination="WXG-4I-DXd" id="bED-dk-lPA"/>
                         <outlet property="_volumeSlider" destination="txi-Fe-jh3" id="gGJ-7y-0WZ"/>
+                        <outlet property="albumImage" destination="Urb-rS-PjI" id="EVE-MP-6ke"/>
+                        <outlet property="songArtist" destination="0wt-Ir-OLW" id="FWn-fQ-3iN"/>
+                        <outlet property="songTitle" destination="ZvA-26-hoF" id="qCu-Z8-cKA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0kX-Zl-rGX" userLabel="First Responder" sceneMemberID="firstResponder"/>

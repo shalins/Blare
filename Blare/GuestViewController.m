@@ -8,6 +8,24 @@
 
 #import "GuestViewController.h"
 
+@import MediaPlayer;
+
+//#import "TDMultipeerGuestViewController.h"
+#import "TDSession.h"
+#import "TDAudioStreamer.h"
+
+@interface GuestViewController () <TDSessionDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *albumImage;
+@property (weak, nonatomic) IBOutlet UILabel *songTitle;
+@property (weak, nonatomic) IBOutlet UILabel *songArtist;
+
+//@property (strong, nonatomic) TDSession *session;
+
+@property (strong, nonatomic) TDAudioInputStreamer *inputStream;
+
+@end
+
 
 
 @implementation GuestViewController
@@ -43,6 +61,14 @@
         [self initializeMusicPlayer];
         
         [self addMusicPlayerObserver];
+        
+        [super viewDidLoad];
+        
+        self.session = [[TDSession alloc] initWithPeerDisplayName:[[UIDevice currentDevice] name]];
+        //[self.session startAdvertisingForServiceType:@"dance-party" discoveryInfo:nil];
+        [self presentViewController:[self.session browserViewControllerForSeriviceType:@"dance-party"] animated:YES completion:nil];
+        
+        self.session.delegate = self;
         
         // Do any additional setup after loading the view, typically from a nib.
     }

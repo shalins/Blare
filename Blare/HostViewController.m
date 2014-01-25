@@ -9,6 +9,26 @@
 
 #import "HostViewController.h"
 
+@import MediaPlayer;
+@import MultipeerConnectivity;
+@import AVFoundation;
+
+#import "TDMultipeerHostViewController.h"
+#import "TDAudioStreamer.h"
+#import "TDSession.h"
+
+@interface HostViewController () <MPMediaPickerControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *albumImage;
+@property (weak, nonatomic) IBOutlet UILabel *songTitle;
+@property (weak, nonatomic) IBOutlet UILabel *songArtist;
+
+//@property (strong, nonatomic) MPMediaItem *song;
+//@property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer;
+//@property (strong, nonatomic) TDSession *session;
+//@property (strong, nonatomic) AVPlayer *player;
+
+@end
 
 
 @implementation HostViewController
@@ -31,7 +51,11 @@
 //        if (screenRect.size.height == 568.0f)
 //        imageBG = [imageBG stringByReplacingOccurrencesOfString:@".png" withString:@"-568h.png"];
 //        
-//        
+//
+        [super viewDidLoad];
+        self.session = [[TDSession alloc] initWithPeerDisplayName:[[ UIDevice currentDevice] name]];
+        [self.session startAdvertisingForServiceType:@"dance-party" discoveryInfo:nil];
+
         
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
         
@@ -40,7 +64,6 @@
         //    UIImage *navBarImage = [UIImage imageNamed:@"NavBarBG.png"];
         //    [[UINavigationBar appearance]setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
         //    
-        [super viewDidLoad];
         [self initializeMusicPlayer];
         
         [self addMusicPlayerObserver];
