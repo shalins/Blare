@@ -78,9 +78,6 @@
                                 <state key="normal" title="Play/Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="playPauseMusic:" destination="mUb-Ir-2qx" eventType="touchUpInside" id="Z3D-bl-3A3"/>
-                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0tw-gy-KLg">
                                 <rect key="frame" x="27" y="368" width="267" height="34"/>
@@ -156,33 +153,32 @@
                                     <action selector="changeVolume:" destination="ZIT-rA-hFW" eventType="valueChanged" id="Trd-S0-7Jk"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvA-26-hoF">
-                                <rect key="frame" x="20" y="93" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi hi hi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvA-26-hoF">
+                                <rect key="frame" x="149" y="91" width="138" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wt-Ir-OLW">
-                                <rect key="frame" x="20" y="140" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi hi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wt-Ir-OLW">
+                                <rect key="frame" x="129" y="138" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-rS-PjI">
+                                <rect key="frame" x="47" y="201" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VHt-a0-wQW">
-                        <barButtonItem key="rightBarButtonItem" title="Song" id="Ehx-cZ-fRw">
-                            <connections>
-                                <action selector="addSongs:" destination="ZIT-rA-hFW" id="yEd-Xp-1qv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="VHt-a0-wQW"/>
                     <connections>
                         <outlet property="_playPauseButton" destination="WXG-4I-DXd" id="bED-dk-lPA"/>
                         <outlet property="_volumeSlider" destination="txi-Fe-jh3" id="gGJ-7y-0WZ"/>
+                        <outlet property="albumImage" destination="Urb-rS-PjI" id="EVE-MP-6ke"/>
                         <outlet property="songArtist" destination="0wt-Ir-OLW" id="FWn-fQ-3iN"/>
                         <outlet property="songTitle" destination="ZvA-26-hoF" id="qCu-Z8-cKA"/>
                     </connections>

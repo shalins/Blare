@@ -28,9 +28,16 @@
 @end
 
 ///////this is the place for new interface/////
-@implementation HostViewController
 
 
+@implementation TDMultipeerHostViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	self.session = [[TDSession alloc] initWithPeerDisplayName:[[ UIDevice currentDevice] name]];
+    [self.session startAdvertisingForServiceType:@"dance-party" discoveryInfo:nil];
+}
 
 #pragma mark - Media Picker delegate
 
@@ -69,7 +76,6 @@
             
             [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
             [self.outputStreamer start];
-            
         }
     }
 }
@@ -86,23 +92,25 @@
     [self presentViewController:[self.session browserViewControllerForSeriviceType:@"dance-party"] animated:YES completion:nil];
 }
 
-
-
-
-
-
-
-
-/////////this is the end for new interface/////
-
-
-
 - (IBAction)addSongs:(id)sender
 {
     MPMediaPickerController *picker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
     picker.delegate = self;
     [self presentViewController:picker animated:YES completion:nil];
 }
+
+@end
+
+
+
+
+
+/////////this is the end for new interface/////
+*/
+
+@implementation HostViewController
+    
+
 
 - (void)didReceiveMemoryWarning
     {
@@ -401,7 +409,17 @@
     
 #pragma mark MPMediaPickerController delegate methods
     
-
+- (void)mediaPicker: (MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection
+    {
+        
+        [self dismissModalViewControllerAnimated:YES];
+        
+        [self updateTheMediaColledtionsItems:mediaItemCollection];
+        
+        
+    }
+    
+    
 - (void)updateTheMediaColledtionsItems:(MPMediaItemCollection *)mediaItemCollection {
     
     if (_userMediaItemCollection == nil) {
@@ -458,7 +476,10 @@
 }
     
     
-
+- (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker
+    {
+        [self dismissModalViewControllerAnimated:YES];
+    }
     
     
 #pragma mark PlayList View delegate methods

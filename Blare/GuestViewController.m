@@ -72,6 +72,42 @@
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+
+
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.session stopAdvertising];
+}
+
+- (void)changeSongInfo:(NSDictionary *)info
+{
+    if (info[@"artwork"])
+        self.albumImage.image = info[@"artwork"];
+    else
+        self.albumImage.image = nil;
+    
+    self.songTitle.text = info[@"title"];
+    self.songArtist.text = info[@"artist"];
+}
+
+#pragma mark - TDSessionDelegate
+
+- (void)session:(TDSession *)session didReceiveData:(NSData *)data
+{
+    NSDictionary *info = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [self performSelectorOnMainThread:@selector(changeSongInfo:) withObject:info waitUntilDone:NO];
+}
+
+- (void)session:(TDSession *)session didReceiveAudioStream:(NSInputStream *)stream
+{
+    if (!self.inputStream) {
+        self.inputStream = [[TDAudioInputStreamer alloc] initWithInputStream:stream];
+        [self.inputStream start];
+    }
+}
+
     
 - (void)viewDidUnload
     {
@@ -98,10 +134,7 @@
         [super viewWillDisappear:animated];
     }
     
-- (void)viewDidDisappear:(BOOL)animated
-    {
-        [super viewDidDisappear:animated];
-    }
+
     
     
     
@@ -178,17 +211,22 @@
     
     MPMusicPlaybackState playbackState = self.musicPlayer.playbackState;
     
-    if (playbackState == MPMusicPlaybackStatePaused || playbackState == MPMusicPlaybackStateStopped) {
+    if (playbackState == MPMusicPlaybackStateStopped || playbackState == MPMusicPlaybackStatePaused) {
+        
+        [self.musicPlayer play];
         
         [_playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
         
-    }else if (playbackState == MPMusicPlaybackStatePlaying) {
+    } else if (playbackState == MPMusicPlaybackStatePlaying) {
+        
+        [self.musicPlayer pause];
         
         [_playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
     }
     
 }
-    
+
+
 - (void)handleVolumeChangedFromOutSideApp:(id)notification {
     
     NSLog(@"handleVolumeChangedFromOutSideApp");

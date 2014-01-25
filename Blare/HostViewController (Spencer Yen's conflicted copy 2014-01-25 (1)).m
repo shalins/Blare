@@ -69,7 +69,6 @@
             
             [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
             [self.outputStreamer start];
-            
         }
     }
 }
@@ -150,26 +149,7 @@
         
     }
     
-- (void)viewWillAppear:(BOOL)animated
-    {
-        [super viewWillAppear:animated];
-    }
-    
-- (void)viewDidAppear:(BOOL)animated
-    {
-        [super viewDidAppear:animated];
-    }
-    
-- (void)viewWillDisappear:(BOOL)animated
-    {
-        [super viewWillDisappear:animated];
-    }
-    
-- (void)viewDidDisappear:(BOOL)animated
-    {
-        [super viewDidDisappear:animated];
-    }
-    
+
     
     
 #pragma mark Music Player
@@ -401,7 +381,7 @@
     
 #pragma mark MPMediaPickerController delegate methods
     
-
+    
 - (void)updateTheMediaColledtionsItems:(MPMediaItemCollection *)mediaItemCollection {
     
     if (_userMediaItemCollection == nil) {
