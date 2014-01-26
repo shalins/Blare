@@ -27,6 +27,7 @@
     
     
         
+    IBOutlet UIButton *playPauseButton;
         IBOutlet  UIButton *_playPauseButton;
         
         IBOutlet  UILabel *_currentlyPlayingSong;
@@ -48,6 +49,7 @@
     @property (strong, nonatomic) TDSession *session;
     @property (strong, nonatomic) AVPlayer *player;
     
+- (IBAction)playPauseAction:(id)sender;
     
 - (IBAction)playPauseMusic:(id)sender;
 - (IBAction)playNextSongInList:(id)sender;

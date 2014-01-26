@@ -33,6 +33,28 @@
 @synthesize allGuestsArray;
 
 #pragma mark - Media Picker delegate
+- (void)viewDidLoad
+{
+    playBool = YES;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"pointer.png"] forState:UIControlStateNormal];
+    
+    // Set this in every view controller so that the back button displays back instead of the root view controller name
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    [super viewDidLoad];
+    self.session = [[TDSession alloc] initWithPeerDisplayName:[[ UIDevice currentDevice] name]];
+    [self.session startAdvertisingForServiceType:@"dance-party" discoveryInfo:nil];
+    
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
+    
+    
+    
+    // Do any additional setup after loading the view, typically from a nib.
+}
 
 - (void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection
 {
@@ -318,28 +340,7 @@
     
 #pragma mark - View lifecycle
     
-- (void)viewDidLoad
-    {
-        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-        
-        [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"pointer.png"] forState:UIControlStateNormal];
-        
-                       // Set this in every view controller so that the back button displays back instead of the root view controller name
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 
-        [super viewDidLoad];
-        self.session = [[TDSession alloc] initWithPeerDisplayName:[[ UIDevice currentDevice] name]];
-        [self.session startAdvertisingForServiceType:@"dance-party" discoveryInfo:nil];
-
-        
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
-        
-        
-
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
 - (void)viewDidUnload
     {
         [super viewDidUnload];
@@ -744,4 +745,20 @@
 
     
     
+- (IBAction)playPauseAction:(id)sender {
+    
+    NSLog(@"playpause tapped");
+    UIImage *currentImage = playPauseButton.currentImage;
+    NSLog(@"%@", currentImage);
+    UIImage *play = [UIImage imageNamed:@"play.png"];
+    UIImage *pause = [UIImage imageNamed:@"pause.png"];
+    if(currentImage == play){
+        NSLog(@"is play button");
+        [playPauseButton setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+    }
+    if(currentImage == pause){
+        NSLog(@"is pause button");
+        [playPauseButton setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+    }
+}
     @end

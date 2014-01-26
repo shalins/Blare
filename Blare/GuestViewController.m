@@ -516,4 +516,14 @@
 //    
 //    
 
+- (IBAction)playPauseAction:(id)sender {
+    if([@"play.png" isEqual:playPauseButton]){
+        NSLog(@"is play button");
+        [playPauseButton setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+    }
+    if([@"pause.png" isEqual:playPauseButton]){
+         NSLog(@"is pause button");
+        [playPauseButton setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+    }
+}
     @end

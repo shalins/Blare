@@ -31,11 +31,14 @@
     
     IBOutlet  UISlider *_volumeSlider;
     
+    IBOutlet UIButton *playPauseButton;
 	MPMediaItemCollection	*_userMediaItemCollection;
     
     PlayListView *_playListView;
     
     NSMutableArray *allGuestsArray;
+    
+    BOOL playBool;
     
 }
 
@@ -57,6 +60,7 @@
 
 @property (strong, nonatomic) TDSession *session;
 
+- (IBAction)playPauseAction:(id)sender;
 
 - (IBAction)playPauseMusic:(id)sender;
 - (IBAction)playNextSongInList:(id)sender;
