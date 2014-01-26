@@ -36,32 +36,13 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"pointer.png"] forState:UIControlStateNormal];
-
-    
-    //        NSString *imageBG = @"MainMenuBG.png";
-    //        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MainMenuBG.png"]]];
-    //        CGRect screenRect = [[UIScreen mainScreen] bounds];
-    //        if (screenRect.size.height == 568.0f)
-    //        imageBG = [imageBG stringByReplacingOccurrencesOfString:@".png" withString:@"-568h.png"];
-    //
-    //
     
     // Set this in every view controller so that the back button displays back instead of the root view controller name
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
-    
-    
-    //Set navBar image programatically    (NavBar.png replace with the image)
-    //    UIImage *navBarImage = [UIImage imageNamed:@"NavBarBG.png"];
-    //    [[UINavigationBar appearance]setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-    //
-    [super viewDidLoad];
-    //[self initializeMusicPlayer];
-    
-    // [self addMusicPlayerObserver];
-    
+
     [super viewDidLoad];
     
     //load the find hosts ciew
@@ -73,11 +54,6 @@
     
 
 }
-
-
-
-
-
 
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -120,11 +96,7 @@
     }
     
 #pragma mark - View lifecycle
-    
-
 #pragma mark - TDSessionDelegate
-
-
     
 - (void)viewDidUnload
     {
@@ -133,7 +105,6 @@
         // e.g. self.myOutlet = nil;
         
         [self removeMusicPlayerObserver];
-        
     }
     
 - (void)viewWillAppear:(BOOL)animated
