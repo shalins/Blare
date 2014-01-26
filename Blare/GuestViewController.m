@@ -32,6 +32,12 @@
     
 - (void)viewDidLoad
 {
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"pointer.png"] forState:UIControlStateNormal];
+
+    
     //        NSString *imageBG = @"MainMenuBG.png";
     //        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MainMenuBG.png"]]];
     //        CGRect screenRect = [[UIScreen mainScreen] bounds];

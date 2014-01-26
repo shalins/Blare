@@ -37,14 +37,6 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 
     
-    NSString *imageBG = @"MainMenuBG.png";
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:imageBG]]];
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    if (screenRect.size.height == 568.0f) {
-        imageBG = [imageBG stringByReplacingOccurrencesOfString:@".png" withString:@"-568h.png"];
-    }
-
-    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
 
     //Set navBar image programatically    (NavBar.png replace with the image)

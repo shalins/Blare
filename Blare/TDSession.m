@@ -47,7 +47,7 @@
 {
     
     HostViewController *hostVC = [[HostViewController alloc]init];
-    
+    hostVC.allGuestsArray = [[NSMutableArray alloc]init];
     if (state == MCSessionStateConnecting) {
         NSLog(@"Connecting to %@", peerID.displayName);
     } else if (state == MCSessionStateConnected) {

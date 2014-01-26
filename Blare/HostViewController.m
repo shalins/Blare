@@ -61,6 +61,7 @@
     
     [self.session sendData:[NSKeyedArchiver archivedDataWithRootObject:[info copy]]];
  
+    [allGuestsArray addObject:[[UIDevice currentDevice] name]];
     NSLog(@"alguestarray!!!!!! %@", allGuestsArray);
     
     NSArray *peers = [self.session connectedPeers];
@@ -319,8 +320,12 @@
     
 - (void)viewDidLoad
     {
-           allGuestsArray = [[NSMutableArray alloc]init];
-              // Set this in every view controller so that the back button displays back instead of the root view controller name
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        
+        [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"pointer.png"] forState:UIControlStateNormal];
+        
+                       // Set this in every view controller so that the back button displays back instead of the root view controller name
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 
         [super viewDidLoad];
