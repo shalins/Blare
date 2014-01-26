@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainMenuBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="A0d-QD-ydR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="575"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="575"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.071874491779999994" green="0.79438133560000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -29,7 +29,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB1-e7-zGE">
-                                <rect key="frame" x="164" y="386" width="145" height="100"/>
+                                <rect key="frame" x="164" y="298" width="145" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="listen.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alb-sY-VE0">
-                                <rect key="frame" x="20" y="386" width="136" height="100"/>
+                                <rect key="frame" x="20" y="298" width="136" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="host.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -217,7 +217,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MainMenuBG.png" width="320" height="481"/>
+        <image name="MainMenuBG.png" width="320" height="480"/>
         <image name="host.png" width="100" height="100"/>
         <image name="listen.png" width="100" height="100"/>
     </resources>

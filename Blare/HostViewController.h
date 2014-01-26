@@ -35,6 +35,7 @@
     
     PlayListView *_playListView;
     
+    NSMutableArray *allGuestsArray;
     
 }
 
@@ -48,6 +49,8 @@
 @property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer6;
 @property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer7;
 @property (strong, nonatomic) TDAudioOutputStreamer *outputStreamer8;
+
+@property (strong, nonatomic) NSMutableArray *allGuestsArray;
 
 
 @property (nonatomic, strong) AVAudioPlayer* player;

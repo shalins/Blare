@@ -30,7 +30,7 @@
 ///////this is the place for new interface/////
 @implementation HostViewController
 
-
+@synthesize allGuestsArray;
 
 #pragma mark - Media Picker delegate
 
@@ -60,20 +60,22 @@
     self.songArtist.text = info[@"artist"];
     
     [self.session sendData:[NSKeyedArchiver archivedDataWithRootObject:[info copy]]];
+ 
+    NSLog(@"alguestarray!!!!!! %@", allGuestsArray);
     
     NSArray *peers = [self.session connectedPeers];
     
     //how to fix for more than one peer
     NSLog(@"peers: %@", peers);
+    
+ 
+    
     if (peers.count == 1) {
             self.outputStreamer = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[0]]];
         
             [self.outputStreamer streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
         
-//        
-//        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]error: NULL];
-//        //[self.player play];
-               [self.outputStreamer start];
+            [self.outputStreamer start];
        [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
         
 
@@ -86,7 +88,7 @@
         
         [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
        
-        //[self.outputStreamer start];
+        [self.outputStreamer start];
         [self.outputStreamer2 start];
          [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
 
@@ -317,19 +319,10 @@
     
 - (void)viewDidLoad
     {
-        //[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-
-        // Set this in every view controller so that the back button displays back instead of the root view controller name
+           allGuestsArray = [[NSMutableArray alloc]init];
+              // Set this in every view controller so that the back button displays back instead of the root view controller name
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 
-        
-//        NSString *imageBG = @"MainMenuBG.png";
-//        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MainMenuBG.png"]]];
-//        CGRect screenRect = [[UIScreen mainScreen] bounds];
-//        if (screenRect.size.height == 568.0f)
-//        imageBG = [imageBG stringByReplacingOccurrencesOfString:@".png" withString:@"-568h.png"];
-//        
-//
         [super viewDidLoad];
         self.session = [[TDSession alloc] initWithPeerDisplayName:[[ UIDevice currentDevice] name]];
         [self.session startAdvertisingForServiceType:@"dance-party" discoveryInfo:nil];
@@ -338,14 +331,7 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarBG.png"] forBarMetrics: UIBarMetricsDefault];
         
         
-        //Set navBar image programatically    (NavBar.png replace with the image)
-        //    UIImage *navBarImage = [UIImage imageNamed:@"NavBarBG.png"];
-        //    [[UINavigationBar appearance]setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-        //    
-       // [self initializeMusicPlayer];
-        
-//        [self addMusicPlayerObserver];
-        
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     

@@ -9,7 +9,7 @@
 @import MultipeerConnectivity;
 
 #import "TDSession.h"
-
+#import "HostViewController.h"
 @interface TDSession () <MCSessionDelegate, MCBrowserViewControllerDelegate>
 
 @property (strong, nonatomic) MCSession *session;
@@ -45,9 +45,14 @@
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
+    
+    HostViewController *hostVC = [[HostViewController alloc]init];
+    
     if (state == MCSessionStateConnecting) {
         NSLog(@"Connecting to %@", peerID.displayName);
     } else if (state == MCSessionStateConnected) {
+        [hostVC.allGuestsArray addObject:peerID.displayName];
+        NSLog(@"added %@", hostVC.allGuestsArray);
         NSLog(@"Connected to %@", peerID.displayName);
     } else if (state == MCSessionStateNotConnected) {
         NSLog(@"Disconnected from %@", peerID.displayName);
