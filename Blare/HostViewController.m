@@ -74,7 +74,7 @@
 //        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]error: NULL];
 //        //[self.player play];
                [self.outputStreamer start];
-       // [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
+       [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
         
 
     }
@@ -85,7 +85,8 @@
         self.outputStreamer2 = [[TDAudioOutputStreamer alloc] initWithOutputStream:[self.session outputStreamForPeer:peers[1]]];
         
         [self.outputStreamer2 streamAudioFromURL:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
-        [self.outputStreamer start];
+       
+        //[self.outputStreamer start];
         [self.outputStreamer2 start];
          [self streamMusicLocal:[self.song valueForProperty:MPMediaItemPropertyAssetURL]];
 

@@ -19,7 +19,7 @@ NSString *const TDAudioStreamerPreviousTrackRequestNotification = @"TDAudioStrea
 NSString *const TDAudioStreamDidFinishPlayingNotification = @"TDAudioStreamDidFinishPlayingNotification";
 NSString *const TDAudioStreamDidStartPlayingNotification = @"TDAudioStreamDidStartPlayingNotification";
 
-UInt32 const kTDAudioStreamReadMaxLength = 1000;
-UInt32 const kTDAudioQueueBufferSize = 2548;
-UInt32 const kTDAudioQueueBufferCount = 25;
-UInt32 const kTDAudioQueueStartMinimumBuffers = 2;
+UInt32 const kTDAudioStreamReadMaxLength = 512;//1000
+UInt32 const kTDAudioQueueBufferSize = 2048;//2048
+UInt32 const kTDAudioQueueBufferCount = 16;//16
+UInt32 const kTDAudioQueueStartMinimumBuffers = 8;//8
