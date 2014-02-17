@@ -269,14 +269,10 @@
     <resources>
         <image name="MainMenuBG.png" width="320" height="480"/>
         <image name="backward.png" width="50" height="50"/>
-        <image name="backward.png" width="50" height="50"/>
         <image name="forward.png" width="50" height="50"/>
-        <image name="forward.png" width="50" height="50"/>
-        <image name="guestBG.png" width="320" height="480"/>
         <image name="guestBG.png" width="320" height="480"/>
         <image name="host.png" width="120" height="120"/>
         <image name="join.png" width="120" height="120"/>
-        <image name="pause.png" width="50" height="50"/>
         <image name="pause.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
